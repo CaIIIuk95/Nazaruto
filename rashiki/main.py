@@ -64,7 +64,7 @@ def open_file(file, number): #"DEF.csv"
             if line[:3] == number[1:4]:
                 parts = line.split(';')
                 if parts[1] <= number[5:11] <= parts[2]:
-                    print(f"{number} | {parts[4]} | {parts[5]}")
+                    print(f"{number} | {parts[4]} | {parts[6]}")
                                  
 
 #number_taker(number_items)
