@@ -63,10 +63,11 @@ def open_file(file, number): #"DEF.csv"
         for line in f:
             if line[:3] == number[1:4]:
                 parts = line.split(';')
-                if parts[1] <= number[5:11] <= parts[2]:
+                if parts[1] <= number[4:11] <= parts[2]:
                     print(f"{number} | {parts[4]} | {parts[6]}")
+                    print(f"{parts[1]} | {parts[2]}")
                                  
 
 #number_taker(number_items)
 #date_format(date_items)
-open_file("rashiki/DEF.csv", "79134567890")
+open_file("rashiki/DEF.csv", "79029830001")
