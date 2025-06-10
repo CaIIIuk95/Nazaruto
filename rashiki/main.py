@@ -1,6 +1,8 @@
 import re
 import dateparser
 
+
+
 text = "7 (903) 402-14-88 Николь Попова \
 А еще напишу в єтом тексте что русню ебал 89038765467,затем без 7 напишу номер 9037876562 \
 Позвоните мне на +7 (912) 345-67-89 или на 8 913 456 78 90. \
@@ -58,16 +60,26 @@ def date_format(items):
         #print(result)
 
 
-def open_file(file, number): #"DEF.csv"
+def def_open_file(file, number): #"DEF.csv"
     with open(file, "r", encoding = "utf-8") as f:
         for line in f:
             if line[:3] == number[1:4]:
                 parts = line.split(';')
                 if parts[1] <= number[4:11] <= parts[2]:
-                    print(f"{number} | {parts[4]} | {parts[6]}")
-                    print(f"{parts[1]} | {parts[2]}")
+                    print(f"{number} | {parts[4]} | {parts[6]} | {get_utc(number)}")
+                    
+
+
+def get_utc(number):
+    with open("rashiki/UTC.csv", "r", encoding = "utf-8") as f:
+        for line in f:
+            if line[:3] == number[1:4]:
+                parts = line.split(',')
+                if parts[0] == number[1:4]:
+                    return parts[1]
+
                                  
 
 #number_taker(number_items)
 #date_format(date_items)
-open_file("rashiki/DEF.csv", "79029830001")
+def_open_file("rashiki/DEF.csv", "79043709001")
